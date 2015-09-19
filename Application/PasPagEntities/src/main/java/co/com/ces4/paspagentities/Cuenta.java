@@ -5,20 +5,48 @@
  */
 package co.com.ces4.paspagentities;
 
+import java.io.Serializable;
+import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
  *
  * @author cristian
  */
-@Table
-public class Cuenta {
+@Entity
+@Table(name = "TPP_CUENTAS")
+public class Cuenta implements Serializable {
     @Id
+    @Column(name = "DNINUMERO_CUENTA")
     private String numero_cuenta;
-    private Banco banco;
+    @ManyToOne
+    @JoinColumn(name = "DNITIPO_CUENTA")
     private TipoCuenta tipo_cuenta;
-    private Persona persona; 
+    @ManyToOne
+    @JoinColumns({
+        @JoinColumn(name = "DNIDOCUMENTO_PERSONA_JURIDICA"),
+        @JoinColumn(name = "OPTIPO_DOCUMENTO_PERSONA_JURIDICA")
+    })
+    private PersonaJuridica personaJuridica;
+    @ManyToOne
+    @JoinColumns({
+        @JoinColumn(name = "DNIDOCUMENTO_PERSONA_NATURAL"),
+        @JoinColumn(name = "OPTIPO_DOCUMENTO_PERSONA_NATURAL")
+    })
+    private PersonaNatural personaNatural; 
+    
+    public Cuenta() {
+    }
+
+    public Cuenta(String numero_cuenta) {
+        this.numero_cuenta = numero_cuenta;
+    }
 
     public String getNumero_cuenta() {
         return numero_cuenta;
@@ -28,14 +56,6 @@ public class Cuenta {
         this.numero_cuenta = numero_cuenta;
     }
 
-    public Banco getBanco() {
-        return banco;
-    }
-
-    public void setBanco(Banco banco) {
-        this.banco = banco;
-    }
-
     public TipoCuenta getTipoCuenta() {
         return tipo_cuenta;
     }
@@ -43,13 +63,40 @@ public class Cuenta {
     public void setTipoCuenta(TipoCuenta tipo_cuenta) {
         this.tipo_cuenta = tipo_cuenta;
     }
-
-    public Persona getPersona() {
-        return persona;
+    
+     public PersonaJuridica getPersonaJuridica() {
+        return personaJuridica;
     }
 
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }   
+    public void setPersonaJuridica(PersonaJuridica personaJuridica) {
+        this.personaJuridica = personaJuridica;
+    }
+
+    public PersonaNatural getPersonaNatural() {
+        return personaNatural;
+    }
+
+    public void setPersonaNatural(PersonaNatural personaNatural) {
+        this.personaNatural = personaNatural;
+    }      
+    
+     @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 79 * hash + Objects.hashCode(this.numero_cuenta);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cuenta other = (Cuenta) obj;
+        return Objects.equals(this.numero_cuenta, other.numero_cuenta);
+    }
     
 }

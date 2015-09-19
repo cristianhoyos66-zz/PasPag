@@ -5,32 +5,73 @@
  */
 package co.com.ces4.paspagentities;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author cristian
  */
-@Table
-public class Transaccion {
+@Entity
+@Table(name = "TPP_TRANSACCIONES")
+public class Transaccion implements Serializable {
+    
+     @TableGenerator(name = "TransGen",
+            table = "TPP_SEQ",
+            pkColumnName = "GEN_KEY",
+            valueColumnName = "GEN_VALUE",
+            pkColumnValue = "PED_CON",
+            initialValue = 1,
+            allocationSize = 1
+    )
+    
     @Id
-    private String idTrans;
+    @Column(name = "DNIID_TRANS")
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "TransGen")
+    private Integer idTrans;
+    @Column(name = "NMMONTO_TRANSACCION")
     private BigDecimal montoTransaccion;
+    @Column(name = "OPTIPO_TRANSACCION")
+    @Enumerated(EnumType.STRING)
     private TipoTransaccion tipoTransaccion;
+    @Column(name = "OPESTADO")
+    @Enumerated(EnumType.STRING)
     private Estado estado;
+    @ManyToOne
+    @JoinColumn(name = "DNINUMERO_CUENTA")
     private Cuenta cuenta_origen;
+    @ManyToOne
+    @JoinColumn(name = "DNINUMERO_CUENTA")
     private Cuenta cuenta_destino;
+    @Column(name = "DSDESCRIPCION")
     private String descripcion;
+    @Column(name = "FETRANSACCION")
+    @Temporal(TemporalType.DATE)
     private Date fecha_transaccion;
-
-    public String getIdTrans() {
+    
+    public Transaccion() {
+    }
+    
+    public Integer getIdTrans() {
         return idTrans;
     }
 
-    public void setIdTrans(String idTrans) {
+    public void setIdTrans(Integer idTrans) {
         this.idTrans = idTrans;
     }
 
@@ -88,6 +129,30 @@ public class Transaccion {
 
     public void setFecha_transaccion(Date fecha_transaccion) {
         this.fecha_transaccion = fecha_transaccion;
+    }
+    
+     @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 19 * hash + Objects.hashCode(this.idTrans);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Transaccion other = (Transaccion) obj;
+        return Objects.equals(this.idTrans, other.idTrans);
+    }
+
+    @Override
+    public String toString() {
+        return "Transaccion{" + "idTrans=" + idTrans + ", montoTransaccion=" + montoTransaccion + ", tipoTransaccion=" + tipoTransaccion + ", estado=" + estado + ", cuenta_origen=" + cuenta_origen + "cuenta_destino=" + cuenta_destino + "descripcion=" + descripcion + "fecha_transaccion=" + fecha_transaccion +'}';
     }
             
 }

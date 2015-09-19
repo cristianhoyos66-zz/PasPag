@@ -1,41 +1,138 @@
 package co.com.ces4.paspagentities;
 
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.MappedSuperclass;
 
 /**
  *
  * @author cristian
  */
-@Table
-public class Persona extends DatosBasicos {
-    @Id
-    private String documento;  
-    private TipoDocumento tipo_doc;
-    private TipoPersona tipo_per;
-
-    public String getDocumento() {
-        return documento;
+@MappedSuperclass
+public class Persona implements Serializable {
+    @EmbeddedId
+    private PersonaPK personaPK;
+    @Column(name = "DSNOMBRE")
+    private String nombre;
+    @Column(name = "DSCONTACTO")
+    private String contacto;
+    @Column(name = "DSCORREO")
+    private String correo;
+    @Column(name = "DSDIRECCION")
+    private String direccion;
+    @Column(name = "DSUSUARIO")
+    private String usuario;
+    @Column(name = "DSCONTRASENA")
+    private String contrasena;
+    @Column(name = "OPESTADO")
+    @Enumerated(EnumType.STRING)
+    private Estado estado;
+    
+    public Persona() {
     }
 
-    public void setDocumento(String documento) {
-        this.documento = documento;
+    public Persona(String documento, TipoDocumento tipoDocumento, String nombre, String contacto, String correo, String direccion, String usuario, String contrasena, Estado estado) {
+        this.personaPK = new PersonaPK(documento, tipoDocumento);
+        this.nombre = nombre;
+        this.contacto = contacto;
+        this.correo = correo;
+        this.direccion = direccion; 
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+        this.estado = estado;
     }
 
-    public TipoDocumento getTipo_doc() {
-        return tipo_doc;
+    public PersonaPK getPersonaPK() {
+        return personaPK;
     }
 
-    public void setTipo_doc(TipoDocumento tipo_doc) {
-        this.tipo_doc = tipo_doc;
+    public void setPersonaPK(PersonaPK personaPK) {
+        this.personaPK = personaPK;
     }
 
-    public TipoPersona getTipo_per() {
-        return tipo_per;
+     
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setTipo_per(TipoPersona tipo_per) {
-        this.tipo_per = tipo_per;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
- 
+
+    public String getContacto() {
+        return contacto;
+    }
+
+    public void setContacto(String contacto) {
+        this.contacto = contacto;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+    
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+    
+     @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.personaPK);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Persona other = (Persona) obj;
+        return Objects.equals(this.personaPK, other.personaPK);
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "personaPK=" + personaPK + ", nombre=" + nombre + "contacto=" + contacto + "correo=" + correo + "direccion=" + direccion + "usuario=" + usuario + "contrasena" + contrasena + "estado=" + estado + '}';
+    }
+    
 }

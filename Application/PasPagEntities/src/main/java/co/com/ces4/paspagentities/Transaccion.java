@@ -53,10 +53,10 @@ public class Transaccion implements Serializable {
     @Enumerated(EnumType.STRING)
     private Estado estado;
     @ManyToOne
-    @JoinColumn(name = "DNINUMERO_CUENTA")
+    @JoinColumn(name = "DNINUMERO_CUENTA_ORIGEN")
     private Cuenta cuenta_origen;
     @ManyToOne
-    @JoinColumn(name = "DNINUMERO_CUENTA")
+    @JoinColumn(name = "DNINUMERO_CUENTA_DESTINO")
     private Cuenta cuenta_destino;
     @Column(name = "DSDESCRIPCION")
     private String descripcion;

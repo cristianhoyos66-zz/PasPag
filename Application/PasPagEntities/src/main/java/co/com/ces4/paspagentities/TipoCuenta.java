@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
 @Table(name = "TPP_TIPO_CUENTAS")
 public class TipoCuenta implements Serializable{
     
-     @TableGenerator(name = "TipCueGen",
+    @TableGenerator(name = "TipCueGen",
             table = "TPP_SEQ",
             pkColumnName = "GEN_KEY",
             valueColumnName = "GEN_VALUE",
@@ -46,8 +46,7 @@ public class TipoCuenta implements Serializable{
     public TipoCuenta() {
     }
 
-    public TipoCuenta(Integer id, String descripcion, Date valido_desde, Date valido_hasta) {
-        this.id = id;
+    public TipoCuenta(String descripcion, Date valido_desde, Date valido_hasta) {
         this.descripcion = descripcion;
         this.valido_desde = valido_desde;
         this.valido_hasta = valido_hasta;

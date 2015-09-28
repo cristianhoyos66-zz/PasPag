@@ -8,6 +8,7 @@ package co.com.ces4.paspagentities;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
@@ -15,6 +16,7 @@ import javax.persistence.Enumerated;
  *
  * @author cristian
  */
+@Embeddable
 public class PersonaPK implements Serializable{
     
     @Column(name = "DNIDOCUMENTO")

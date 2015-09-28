@@ -30,14 +30,14 @@ public class Cuenta implements Serializable {
     private TipoCuenta tipo_cuenta;
     @ManyToOne
     @JoinColumns({
-        @JoinColumn(name = "DNIDOCUMENTO_PERSONA_JURIDICA"),
-        @JoinColumn(name = "OPTIPO_DOCUMENTO_PERSONA_JURIDICA")
+        @JoinColumn(name = "DNIDOCUMENTO_PERSONA_JURIDICA", referencedColumnName="DNIDOCUMENTO"),
+        @JoinColumn(name = "OPTIPO_DOCUMENTO_CLIENTE", referencedColumnName="OPTIPO_DOCUMENTO")
     })
     private PersonaJuridica personaJuridica;
     @ManyToOne
     @JoinColumns({
-        @JoinColumn(name = "DNIDOCUMENTO_PERSONA_NATURAL"),
-        @JoinColumn(name = "OPTIPO_DOCUMENTO_PERSONA_NATURAL")
+        @JoinColumn(name = "DNIDOCUMENTO_PERSONA_NATURAL", referencedColumnName="DNIDOCUMENTO"),
+        @JoinColumn(name = "OPTIPO_DOCUMENTO_PERSONA_NATURAL", referencedColumnName="OPTIPO_DOCUMENTO")
     })
     private PersonaNatural personaNatural; 
     

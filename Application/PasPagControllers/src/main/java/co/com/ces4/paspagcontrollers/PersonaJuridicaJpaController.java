@@ -34,6 +34,9 @@ public class PersonaJuridicaJpaController implements Serializable {
     }
 
     public void create(PersonaJuridica personaJuridica) throws PreexistingEntityException, Exception {
+        if (personaJuridica.getPersonaPK() == null) {
+            personaJuridica.setPersonaPK(new PersonaPK());
+        }
         EntityManager em = null;
         try {
             em = getEntityManager();

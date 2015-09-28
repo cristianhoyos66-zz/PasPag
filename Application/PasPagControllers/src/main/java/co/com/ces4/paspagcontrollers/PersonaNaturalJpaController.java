@@ -34,6 +34,9 @@ public class PersonaNaturalJpaController implements Serializable {
     }
 
     public void create(PersonaNatural personaNatural) throws PreexistingEntityException, Exception {
+        if (personaNatural.getPersonaPK() == null) {
+            personaNatural.setPersonaPK(new PersonaPK());
+        }
         EntityManager em = null;
         try {
             em = getEntityManager();

@@ -39,7 +39,7 @@ public class mainServlets extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             Date currentDate = new Date();
             TipoCuentaJpaController controller = (TipoCuentaJpaController)getServletContext().getAttribute("tipoCuentajpa");
-            controller.create(new TipoCuenta("prueba descripción", currentDate, currentDate));
+            controller.create(new TipoCuenta("prueba descripción2", currentDate, currentDate));
             
             out.println("<!DOCTYPE html>");
             out.println("<html>");

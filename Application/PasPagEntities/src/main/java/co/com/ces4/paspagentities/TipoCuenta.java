@@ -36,20 +36,12 @@ public class TipoCuenta implements Serializable{
     private Integer id;
     @Column(name = "DSDESCRIPCION")
     private String descripcion;
-    @Column(name = "FEVALIDO_DESDE")
-    @Temporal(TemporalType.DATE)
-    private Date valido_desde;
-    @Column(name = "FEVALIDO_HASTA")
-    @Temporal(TemporalType.DATE)
-    private Date valido_hasta;
 
     public TipoCuenta() {
     }
 
-    public TipoCuenta(String descripcion, Date valido_desde, Date valido_hasta) {
+    public TipoCuenta(String descripcion) {
         this.descripcion = descripcion;
-        this.valido_desde = valido_desde;
-        this.valido_hasta = valido_hasta;
     }
     
     public Integer getId() {
@@ -66,22 +58,6 @@ public class TipoCuenta implements Serializable{
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public Date getValido_desde() {
-        return valido_desde;
-    }
-
-    public void setValido_desde(Date valido_desde) {
-        this.valido_desde = valido_desde;
-    }
-
-    public Date getValido_hasta() {
-        return valido_hasta;
-    }
-
-    public void setValido_hasta(Date valido_hasta) {
-        this.valido_hasta = valido_hasta;
     }
     
     @Override
@@ -102,5 +78,12 @@ public class TipoCuenta implements Serializable{
         final TipoCuenta other = (TipoCuenta) obj;
         return Objects.equals(this.id, other.id);
     }
+
+    @Override
+    public String toString() {
+        return "TipoCuenta{" + "id=" + id + ", descripcion=" + descripcion + '}';
+    }
+    
+    
     
 }

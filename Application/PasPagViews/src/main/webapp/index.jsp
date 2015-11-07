@@ -26,5 +26,6 @@
         <a href="Cuentas.jsp">Gestionar cuentas</a><br>
         <a href="Bancos.jsp">Gestionar bancos</a><br>
         <a href="TipoCuentasServlet?accion=listTipoCuentas">Gestionar tipo de cuentas</a>
+        <a href="">Listar transacciones</a>
     </body>
 </html>

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="76A26159-D073-1C57-842A-6CBEE356D765" mainViewID="8C1A6653-F27D-FBCF-26A1-DEAB29D98AD2">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:07:28 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

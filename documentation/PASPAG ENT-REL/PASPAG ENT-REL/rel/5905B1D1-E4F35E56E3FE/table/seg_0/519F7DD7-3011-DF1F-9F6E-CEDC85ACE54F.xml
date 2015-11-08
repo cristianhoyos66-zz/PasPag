@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="519F7DD7-3011-DF1F-9F6E-CEDC85ACE54F" name="TPP_SEQ">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:54:18 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<ordsAlias>table_9</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="GEN_KEY" id="EF296522-86A0-7E88-F4FB-A09F03E71B7E">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:55:04 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GEN_VALUE" id="2C0D5988-E24D-4FB6-5439-9C5BB39B22E1">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:55:04 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="39AD341E-C2B5-912E-B3F7-D92EA63791B3" name="TPP_SEQ_PK">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:55:04 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EF296522-86A0-7E88-F4FB-A09F03E71B7E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

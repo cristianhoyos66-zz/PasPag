@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="Table" objectID="A2722C85-4F37-93E4-7403-CA1ED8A33FF5" name="TPP_CUENTAS" seqName="seg_0"/>
+   <object objectType="Table" objectID="C117C365-03C6-584F-1566-B8A991EC6C61" name="TPP_ENTIDAD_FINANCIERA" seqName="seg_0"/>
+   <object objectType="Table" objectID="6F17B367-3CC2-8226-BC0F-4CAB24343B88" name="TPP_PERSONAS_JURIDICAS" seqName="seg_0"/>
+   <object objectType="Table" objectID="8439FD14-4529-CFE0-5314-179A82CE416A" name="TPP_PERSONAS_NATURALES" seqName="seg_0"/>
+   <object objectType="Table" objectID="519F7DD7-3011-DF1F-9F6E-CEDC85ACE54F" name="TPP_SEQ" seqName="seg_0"/>
+   <object objectType="Table" objectID="5A521276-3D01-A921-F65E-C2E6441B187B" name="TPP_TIPOS_CUENTAS" seqName="seg_0"/>
+   <object objectType="Table" objectID="F4A34112-1ECE-60A1-A531-38644537ECA1" name="TPP_TRANSACCIONES" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="DEE3F77F-753F-28D6-D78A-6455F4AEBC12" name="TPP_CUENTAS_TPP_ENTIDAD_FINANCIERA_FK" seqName="seg_0" containerID="A2722C85-4F37-93E4-7403-CA1ED8A33FF5" refContainerID="C117C365-03C6-584F-1566-B8A991EC6C61"/>
+   <object objectType="FKIndexAssociation" objectID="D2F8B3B2-B1C1-2281-B025-33189C5EC24A" name="TPP_CUENTAS_TPP_PERSONAS_JURIDICAS_FK" seqName="seg_0" containerID="A2722C85-4F37-93E4-7403-CA1ED8A33FF5" refContainerID="6F17B367-3CC2-8226-BC0F-4CAB24343B88"/>
+   <object objectType="FKIndexAssociation" objectID="0F4640C7-E986-1BDD-06DB-7ED4B70A3E92" name="TPP_CUENTAS_TPP_PERSONAS_NATURALES_FK" seqName="seg_0" containerID="A2722C85-4F37-93E4-7403-CA1ED8A33FF5" refContainerID="8439FD14-4529-CFE0-5314-179A82CE416A"/>
+   <object objectType="FKIndexAssociation" objectID="AFCE4EAA-895B-2132-04FA-73FAE516EE95" name="TPP_CUENTAS_TPP_TIPOS_CUENTAS_FK" seqName="seg_0" containerID="A2722C85-4F37-93E4-7403-CA1ED8A33FF5" refContainerID="5A521276-3D01-A921-F65E-C2E6441B187B"/>
+   <object objectType="FKIndexAssociation" objectID="CC780558-3BFF-EF53-B43E-E0E6A7839632" name="TPP_TRANSACCIONES_TPP_CUENTAS_FK" seqName="seg_0" containerID="F4A34112-1ECE-60A1-A531-38644537ECA1" refContainerID="A2722C85-4F37-93E4-7403-CA1ED8A33FF5"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

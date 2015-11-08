@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DEE3F77F-753F-28D6-D78A-6455F4AEBC12" containerWithKeyObject="A2722C85-4F37-93E4-7403-CA1ED8A33FF5" localFKIndex="1F6213DA-FFD2-0796-D2DB-DF0D62896D1A" name="TPP_CUENTAS_TPP_ENTIDAD_FINANCIERA_FK">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 02:19:27 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C117C365-03C6-584F-1566-B8A991EC6C61</referredTableID>
+<keyObject>9624C61F-EA85-2498-FA4A-48D16346F9AE</keyObject>
+<referredKeyID>9624C61F-EA85-2498-FA4A-48D16346F9AE</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

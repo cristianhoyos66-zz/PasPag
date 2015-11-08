@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Relational_2" id="5905B1D1-D03C-719C-0A2F-E4F35E56E3FE" mainViewID="AD4582F4-917F-F4D2-1473-F77D21ADA149">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:17:24 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>32076570-2523-435C-2E92-BF29817DFF70</selectedRDBMSSite>
+</relationalModel>

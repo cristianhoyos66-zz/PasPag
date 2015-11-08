@@ -1,0 +1,186 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A2722C85-4F37-93E4-7403-CA1ED8A33FF5" name="TPP_CUENTAS">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:25:38 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DNINUMERO_CUENTA" id="63FE1E91-BD0D-DD81-69FA-3B8E633A1F8C">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:28:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DNIDOCUMENTO_PERSONA_JURIDICA" id="61657155-3B36-7216-B13A-1CDCB073E4B2">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:28:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D2F8B3B2-B1C1-2281-B025-33189C5EC24A" referredColumn="CB61EA25-E022-13FA-8AF9-6FA52F39E9B9"/>
+<colAssociation fkAssociation="DEE3F77F-753F-28D6-D78A-6455F4AEBC12" referredColumn="15C7DD02-71A4-6A11-D78D-AEA5783AFC49"/>
+</associations>
+</Column>
+<Column name="OPTIPO_DOCUMENTO_CLIENTE" id="34BE56B1-8DFF-8B8C-7E39-6802B579EA04">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:28:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D2F8B3B2-B1C1-2281-B025-33189C5EC24A" referredColumn="8E6E11D8-DB97-A368-0227-886AF6D8BD22"/>
+<colAssociation fkAssociation="DEE3F77F-753F-28D6-D78A-6455F4AEBC12" referredColumn="4ACE2BFE-A16B-731A-1811-4473DCED80E6"/>
+</associations>
+</Column>
+<Column name="DNIDOCUMENTO_PERSONA_NATURAL" id="DFC26C7D-E53A-F5F3-02B0-FDE07F3699AF">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:28:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0F4640C7-E986-1BDD-06DB-7ED4B70A3E92" referredColumn="21DAB56F-2A71-C85E-85DB-40A537B87BCA"/>
+</associations>
+</Column>
+<Column name="OP_TIPO_DOCU_PERSONA_NATURAL" id="E4C6908B-69F4-E05D-9CE6-917BAC890B1A">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:28:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0F4640C7-E986-1BDD-06DB-7ED4B70A3E92" referredColumn="698ADC37-18AF-6F91-B847-5AD2B6175BB5"/>
+</associations>
+</Column>
+<Column name="DNITIPO_CUENTA" id="1EF20033-CF81-578F-88BE-0CC7712DEB58">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:28:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AFCE4EAA-895B-2132-04FA-73FAE516EE95" referredColumn="B76ABD67-EF7E-777C-52F3-4141B9684E05"/>
+</associations>
+</Column>
+<Column name="FEVALIDO_DESDE" id="F7287F4B-6E62-6071-BEA1-F58E877797CE">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:32:51 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FEVALIDO_HASTA" id="9227D598-F170-06C5-6A37-C957AB4AF8B2">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:32:51 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="56A9EECA-9A6D-13AB-C018-F81C3E5F7C6B" name="TPP_CUENTAS_PK">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:28:35 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="63FE1E91-BD0D-DD81-69FA-3B8E633A1F8C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="67331714-70B6-F1DD-204A-35CA0EB37741" name="TPP_CUENTAS_TPP_TIPOS_CUENTAS_FK">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 02:04:49 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1EF20033-CF81-578F-88BE-0CC7712DEB58"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6851E858-7BDA-E328-4FAF-5EA7DECAB7EA" name="TPP_CUENTAS_TPP_PERSONAS_JURIDICAS_FK">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 02:05:28 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="34BE56B1-8DFF-8B8C-7E39-6802B579EA04"/>
+<colUsage columnID="61657155-3B36-7216-B13A-1CDCB073E4B2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5217B7E5-AD11-BBF1-FEE8-173A8D6D39AE" name="TPP_CUENTAS_TPP_PERSONAS_NATURALES_FK">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 02:06:16 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DFC26C7D-E53A-F5F3-02B0-FDE07F3699AF"/>
+<colUsage columnID="E4C6908B-69F4-E05D-9CE6-917BAC890B1A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1F6213DA-FFD2-0796-D2DB-DF0D62896D1A" name="TPP_CUENTAS_TPP_ENTIDAD_FINANCIERA_FK">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 02:19:27 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="34BE56B1-8DFF-8B8C-7E39-6802B579EA04"/>
+<colUsage columnID="61657155-3B36-7216-B13A-1CDCB073E4B2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

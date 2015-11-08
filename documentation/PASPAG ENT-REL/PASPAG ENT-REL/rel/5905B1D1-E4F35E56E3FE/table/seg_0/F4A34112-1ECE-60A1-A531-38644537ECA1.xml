@@ -1,0 +1,140 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F4A34112-1ECE-60A1-A531-38644537ECA1" name="TPP_TRANSACCIONES">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:28:39 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DNIID_TRANS" id="47DEC1F0-CC34-9337-B098-22FCF9A80219">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:31:51 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DSDESCRIPCION" id="A09141BF-102E-CFAC-9553-447329D06015">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:31:51 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OPESTADO" id="CAC1B85E-D7F0-7809-950E-7BFE20984C17">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:31:51 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FETRANSACCION" id="73DA87F9-21A7-8AD7-CB5F-E0567BEA07DF">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:31:51 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NMMONTO_TRANSACCION" id="1E38E508-2C38-2F07-49A5-9BACD694FE45">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:31:51 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OPTIPO_TRANSACCION" id="1E6D6556-A23A-79C7-C392-D38A80662BF9">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:31:51 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DNINUMERO_CUENTA_DESTINO" id="6FE7711A-F094-F510-9573-B16156750DA0">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:31:51 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DNINUMERO_CUENTA_ORIGEN" id="FA208C84-3C84-1592-7728-F7A08C93743E">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:31:51 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CC780558-3BFF-EF53-B43E-E0E6A7839632" referredColumn="63FE1E91-BD0D-DD81-69FA-3B8E633A1F8C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EFDAB088-D878-8149-533A-0D4B1B18AFF7" name="TPP_TRANSACCIONES_PK">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:31:51 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="47DEC1F0-CC34-9337-B098-22FCF9A80219"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FC16247D-CD50-79DB-9620-6B1205A4B8E5" name="TPP_TRANSACCIONES_TPP_CUENTAS_FK">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 02:08:46 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FA208C84-3C84-1592-7728-F7A08C93743E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

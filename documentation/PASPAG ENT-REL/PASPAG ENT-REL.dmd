@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="PASPAG ENT-REL" id="19921955-252F-1469-4786-E511756A8713" version="3.5">
+<createdBy>GALEANO</createdBy>
+<createdTime>2015-11-08 01:07:28 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>PASPAG ENT-REL</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>19921955-252F-1469-4786-E511756A8713</designId>
+</OSDM_Design>

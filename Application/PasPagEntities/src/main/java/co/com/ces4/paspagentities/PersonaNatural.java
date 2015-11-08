@@ -33,8 +33,8 @@ public class PersonaNatural extends Persona{
     public PersonaNatural() {
     }
 
-    public PersonaNatural(String ciudadNacimiento, String paisNacimiento, Date fechaNacimiento, String documento, TipoDocumento tipoDocumento, String nombre, String contacto, String correo, String direccion, String usuario, String contrasena, Estado estado) {
-        super(documento, tipoDocumento, nombre, contacto, correo, direccion, usuario, contrasena, estado);
+    public PersonaNatural(String ciudadNacimiento, String paisNacimiento, Date fechaNacimiento, String documento, TipoDocumento tipoDocumento, String nombre, String contacto, String correo, String direccion, String usuario, String contrasena) {
+        super(documento, tipoDocumento, nombre, contacto, correo, direccion, usuario, contrasena);
         this.ciudadNacimiento = ciudadNacimiento;
         this.paisNacimiento = paisNacimiento;
         this.fechaNacimiento = fechaNacimiento;

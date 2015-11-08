@@ -8,6 +8,6 @@ package co.com.ces4.paspagentities;
 
 public enum TipoDocumento {
     
-    TARJETA_IDENTIDAD, CEDULA, CEDULA_EXTRANJERIA
+    TARJETA_IDENTIDAD, CEDULA, CEDULA_EXTRANJERIA, NIT
     
 }

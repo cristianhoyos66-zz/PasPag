@@ -40,18 +40,27 @@ public class Cuenta implements Serializable {
     @ManyToOne
     @JoinColumn(name = "DNITIPO_CUENTA")
     private TipoCuenta tipo_cuenta;
-    @ManyToOne
+    @ManyToOne(optional = true)
     @JoinColumns({
         @JoinColumn(name = "DNIDOCUMENTO_PERSONA_JURIDICA", referencedColumnName="DNIDOCUMENTO"),
         @JoinColumn(name = "OPTIPO_DOCUMENTO_CLIENTE", referencedColumnName="OPTIPO_DOCUMENTO")
     })
     private PersonaJuridica personaJuridica;
-    @ManyToOne
+    @ManyToOne(optional = true)
     @JoinColumns({
         @JoinColumn(name = "DNIDOCUMENTO_PERSONA_NATURAL", referencedColumnName="DNIDOCUMENTO"),
         @JoinColumn(name = "OPTIPO_DOCUMENTO_PERSONA_NATURAL", referencedColumnName="OPTIPO_DOCUMENTO")
     })
     private PersonaNatural personaNatural; 
+    
+    @ManyToOne
+    @JoinColumns({
+        @JoinColumn(name = "DNIDOCUMENTO_ENTIDAD_FINANCIERA", referencedColumnName="DNIDOCUMENTO"),
+        @JoinColumn(name = "OPTIPO_DOCUMENTO_BANCO", referencedColumnName="OPTIPO_DOCUMENTO")
+    })
+    private EntidadFinanciera entidadFinanciera;
+
+    
     
     public Cuenta() {
     }
@@ -108,7 +117,16 @@ public class Cuenta implements Serializable {
 
     public void setPersonaNatural(PersonaNatural personaNatural) {
         this.personaNatural = personaNatural;
-    }      
+    }
+    
+    
+    public EntidadFinanciera getEntidadFinanciera() {
+        return entidadFinanciera;
+    }
+
+    public void setEntidadFinanciera(EntidadFinanciera entidadFinanciera) {
+        this.entidadFinanciera = entidadFinanciera;
+    }
     
      @Override
     public int hashCode() {
@@ -128,5 +146,6 @@ public class Cuenta implements Serializable {
         final Cuenta other = (Cuenta) obj;
         return Objects.equals(this.numero_cuenta, other.numero_cuenta);
     }
+    
     
 }

@@ -6,6 +6,7 @@
 package co.com.ces4.paspag.listener;
 
 import co.com.ces4.paspagcontrollers.CuentaJpaController;
+import co.com.ces4.paspagcontrollers.EntidadFinancieraJpaController;
 import co.com.ces4.paspagcontrollers.PersonaJuridicaJpaController;
 import co.com.ces4.paspagcontrollers.PersonaNaturalJpaController;
 import co.com.ces4.paspagcontrollers.TipoCuentaJpaController;
@@ -27,6 +28,7 @@ public class BootstrapListener implements ServletContextListener {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("PasPagPU");
         
         CuentaJpaController cuentajpa = new CuentaJpaController(emf);
+        EntidadFinancieraJpaController entidadFinancierJpa = new EntidadFinancieraJpaController(emf);
         PersonaJuridicaJpaController personaJuridicajpa = new PersonaJuridicaJpaController(emf);
         PersonaNaturalJpaController personaNaturaljpa = new PersonaNaturalJpaController(emf);
         TipoCuentaJpaController tipoCuentajpa = new TipoCuentaJpaController(emf);
@@ -34,6 +36,7 @@ public class BootstrapListener implements ServletContextListener {
         
         sce.getServletContext().setAttribute("entityManagerFactory", emf);
         sce.getServletContext().setAttribute("cuentajpa", cuentajpa);
+        sce.getServletContext().setAttribute("entidadFinancierJpa", entidadFinancierJpa);
         sce.getServletContext().setAttribute("personaJuridicajpa", personaJuridicajpa);
         sce.getServletContext().setAttribute("personaNaturaljpa", personaNaturaljpa);
         sce.getServletContext().setAttribute("tipoCuentajpa", tipoCuentajpa);

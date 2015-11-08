@@ -22,10 +22,9 @@
     </head>
     <body>
         <h1>¿Qué desea hacer?</h1>
-        <a href="Personas.jsp">Gestionar personas</a><br>
-        <a href="Cuentas.jsp">Gestionar cuentas</a><br>
+        <a href="PersonaNaturalServlet?accion=listPersonasNaturales">Gestionar personas</a><br>
+        <a href="Cuentas.jsp">Gestionar companías</a><br>
         <a href="Bancos.jsp">Gestionar bancos</a><br>
         <a href="TipoCuentasServlet?accion=listTipoCuentas">Gestionar tipo de cuentas</a>
-        <a href="">Listar transacciones</a>
     </body>
 </html>

@@ -30,8 +30,8 @@ public class PersonaJuridica extends Persona {
     public PersonaJuridica() {
     }
 
-    public PersonaJuridica(String ciudadConstitucion, String PaisConstitucion, Date fechaConstitucion, String documento, TipoDocumento tipoDocumento, String nombre, String contacto, String correo, String direccion, String usuario, String contrasena, Estado estado) {
-        super(documento, tipoDocumento, nombre, contacto, correo, direccion, usuario, contrasena, estado);
+    public PersonaJuridica(String ciudadConstitucion, String PaisConstitucion, Date fechaConstitucion, String documento, TipoDocumento tipoDocumento, String nombre, String contacto, String correo, String direccion, String usuario, String contrasena) {
+        super(documento, tipoDocumento, nombre, contacto, correo, direccion, usuario, contrasena);
         this.ciudadConstitucion = ciudadConstitucion;
         this.PaisConstitucion = PaisConstitucion;
         this.fechaConstitucion = fechaConstitucion;

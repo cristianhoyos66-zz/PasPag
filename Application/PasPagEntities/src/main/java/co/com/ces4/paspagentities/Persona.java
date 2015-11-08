@@ -28,14 +28,11 @@ public class Persona implements Serializable {
     private String usuario;
     @Column(name = "DSCONTRASENA")
     private String contrasena;
-    @Column(name = "OPESTADO")
-    @Enumerated(EnumType.STRING)
-    private Estado estado;
     
     public Persona() {
     }
 
-    public Persona(String documento, TipoDocumento tipoDocumento, String nombre, String contacto, String correo, String direccion, String usuario, String contrasena, Estado estado) {
+    public Persona(String documento, TipoDocumento tipoDocumento, String nombre, String contacto, String correo, String direccion, String usuario, String contrasena) {
         this.personaPK = new PersonaPK(documento, tipoDocumento);
         this.nombre = nombre;
         this.contacto = contacto;
@@ -43,7 +40,6 @@ public class Persona implements Serializable {
         this.direccion = direccion; 
         this.usuario = usuario;
         this.contrasena = contrasena;
-        this.estado = estado;
     }
 
     public PersonaPK getPersonaPK() {
@@ -103,14 +99,6 @@ public class Persona implements Serializable {
         this.contrasena = contrasena;
     }
     
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
-    
      @Override
     public int hashCode() {
         int hash = 7;
@@ -132,7 +120,9 @@ public class Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "Persona{" + "personaPK=" + personaPK + ", nombre=" + nombre + "contacto=" + contacto + "correo=" + correo + "direccion=" + direccion + "usuario=" + usuario + "contrasena" + contrasena + "estado=" + estado + '}';
+        return "Persona{" + "personaPK=" + personaPK + ", nombre=" + nombre + ", contacto=" + contacto + ", correo=" + correo + ", direccion=" + direccion + ", usuario=" + usuario + ", contrasena=" + contrasena + '}';
     }
+
+   
     
 }

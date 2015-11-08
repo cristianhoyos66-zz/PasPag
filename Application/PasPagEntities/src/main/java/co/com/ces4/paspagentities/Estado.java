@@ -12,6 +12,6 @@ package co.com.ces4.paspagentities;
 
 public enum Estado {
     
-    ACTIVO, INACTIVO
+    EXITOSA, FALLIDA
     
 }

@@ -64,6 +64,12 @@ public class PersonaNatural extends Persona{
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
+
+    @Override
+    public String toString() {
+        return "PersonaNatural{" + "ciudadNacimiento=" + ciudadNacimiento + ", paisNacimiento=" + paisNacimiento + ", fechaNacimiento=" + fechaNacimiento + '}';
+    }
+    
     
        
 }

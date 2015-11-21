@@ -15,8 +15,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.NoResultException;
-import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
@@ -146,80 +144,5 @@ public class PersonaNaturalJpaController implements Serializable {
             em.close();
         }
     }
-    
-    //ejemplos con jpql
-    public List<PersonaNatural> encontrarPersonaPorPais (String pais) {
-        EntityManager em = getEntityManager();
-        TypedQuery<PersonaNatural> listaDePersonas = em.createQuery("SELECT p FROM PersonaNatural p WHERE LOWER(P.paisNacimiento) LIKE LOWER(:pais)", PersonaNatural.class);
-        listaDePersonas.setParameter("pais", "%" + pais + "%");
-        return listaDePersonas.getResultList();
-    }
-    
-    public List<PersonaNatural> encontrarPersonaFechaMenor () {
-        EntityManager em = getEntityManager();
-        TypedQuery<PersonaNatural> listaDePersonas = em.createQuery("SELECT p FROM PersonaNatural p WHERE LOWER(P.fechaNacimiento) < CURRENT_DATE", PersonaNatural.class);
-        return listaDePersonas.getResultList();
-    }
-    
-    public List<PersonaNatural> EncontrarPersonaUsuario (String usuario) {
-        EntityManager em = getEntityManager();
-        TypedQuery<PersonaNatural> listaDePersonas = em.createQuery("SELECT p FROM PersonaNatural p WHERE LOWER(p.usuario) LIKE LOWER(:usuario)", PersonaNatural.class);
-        listaDePersonas.setParameter("usuario", "%" + usuario + "%");
-        return listaDePersonas.getResultList();
-        
-    }
-    
-    public List<PersonaNatural> QuincePrimerasPersonas() throws Exception {
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            Query query = em.createQuery("select p from PersonaNatural p");
-            query.setMaxResults(15);
-            return query.getResultList();
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw e;
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-    
-    public List<PersonaNatural> fechaMenorDosPrimerasPersonas(String nombre) throws Exception {
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            Query query = em.createQuery("select p from PersonaNatural p WHERE p.fechaNacimiento < CURRENT_DATE AND p.nombre LIKE :nombre");
-            query.setParameter("nombre", "%" + nombre + "%");
-            query.setMaxResults(2);
-            return query.getResultList();
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw e;
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-    
-    public List<PersonaNatural> paginar(Integer limite) throws Exception {
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            Query query = em.createQuery("select p from PersonaNatural p");
-            query.setMaxResults(limite);
-            return query.getResultList();
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw e;
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-    
     
 }

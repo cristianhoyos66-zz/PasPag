@@ -1,5 +1,8 @@
 package co.com.ces4.paspagentities;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  *
@@ -9,5 +12,4 @@ package co.com.ces4.paspagentities;
 public enum TipoDocumento {
     
     TARJETA_IDENTIDAD, CEDULA, CEDULA_EXTRANJERIA, NIT
-    
 }

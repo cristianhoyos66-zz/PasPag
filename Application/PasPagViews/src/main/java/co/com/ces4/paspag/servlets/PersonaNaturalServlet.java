@@ -7,8 +7,10 @@ package co.com.ces4.paspag.servlets;
 
 import co.com.ces4.paspagcontrollers.PersonaNaturalJpaController;
 import co.com.ces4.paspagcontrollers.TipoCuentaJpaController;
+import co.com.ces4.paspagcontrollers.exceptions.NonexistentEntityException;
 import co.com.ces4.paspagentities.PersonaNatural;
 import co.com.ces4.paspagentities.TipoDocumento;
+import co.com.ces4.paspagentities.PersonaPK;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -22,6 +24,7 @@ import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,7 +45,7 @@ public class PersonaNaturalServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    DateFormat df = new SimpleDateFormat("yyyy/dd/mm");
+    DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -56,8 +59,11 @@ public class PersonaNaturalServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             PersonaNaturalJpaController controller = (PersonaNaturalJpaController)getServletContext().getAttribute("personaNaturaljpa");
+            List<TipoDocumento> tipodoc = new ArrayList<>();
+            for (int i = 0; i < TipoDocumento.values().length; i++) {
+                tipodoc.add(TipoDocumento.values()[i]);
+            }
             List listaPersonas = controller.findPersonaNaturalEntities();
-            List<TipoDocumento> tipodoc = Arrays.asList(TipoDocumento.values());
             request.setAttribute("listaPersonas", listaPersonas);
             request.setAttribute("tipodoc", tipodoc);
             limpiar(request, response);
@@ -65,7 +71,9 @@ public class PersonaNaturalServlet extends HttpServlet {
         }
     }
     
+    
     protected void limpiar(HttpServletRequest request, HttpServletResponse response) {        
+        List<TipoDocumento> tipodoc = new ArrayList<>();
         request.setAttribute("documento_persona", "");
         request.setAttribute("nombre_persona", "");
         request.setAttribute("contacto_persona", "");
@@ -76,29 +84,56 @@ public class PersonaNaturalServlet extends HttpServlet {
         request.setAttribute("pais_nacimiento", "");
         request.setAttribute("ciudad_nacimiento", "");
         request.setAttribute("fecha_nacimiento", "");
+        request.setAttribute("conditional", "");
     }
     
     protected void metGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, NonexistentEntityException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String accion = request.getParameter("accion");
             limpiar(request, response);
-            if(accion.equals("listPersonasNaturales")){
+            PersonaNaturalJpaController controller = (PersonaNaturalJpaController)getServletContext().getAttribute("personaNaturaljpa");
+
+            if(accion.equals("listPersonasNaturales") || accion.equals("limpiarRedireccionar")){
                 limpiarRedireccionar(request, response);
             }
             if (accion.equals("set_data")) {
-               PersonaNaturalJpaController controller = (PersonaNaturalJpaController)getServletContext().getAttribute("personaNaturaljpa");
-                
+               List<TipoDocumento> tipodoc = Arrays.asList(TipoDocumento.values());
+               List listaPersonas = controller.findPersonaNaturalEntities();
+
+                              
                String Documento = request.getParameter("documento");
                String tipo_seleccionado = request.getParameter("tipo_documento");
+               TipoDocumento tipoSeleccionado = TipoDocumento.valueOf(tipo_seleccionado);
+               PersonaPK primaryKey = new PersonaPK(Documento, tipoSeleccionado);
+               
+               PersonaNatural persona = controller.findPersonaNatural(primaryKey);
+               
                request.setAttribute("documento_persona", Documento);
-               request.setAttribute("tipo_seleccionado", tipo_seleccionado);
-               List listaPersonas = controller.findPersonaNaturalEntities();
-               List<TipoDocumento> tipodoc = Arrays.asList(TipoDocumento.values());
+               request.setAttribute("tipo_seleccionado", tipoSeleccionado);
+               request.setAttribute("nombre_persona", persona.getNombre());
+               request.setAttribute("contacto_persona", persona.getContacto());
+               request.setAttribute("correo_persona", persona.getCorreo());
+               request.setAttribute("direccion_persona", persona.getDireccion());
+               request.setAttribute("usuario", persona.getUsuario());
+               request.setAttribute("contrasena", persona.getContrasena());
+               request.setAttribute("pais_nacimiento", persona.getPaisNacimiento());
+               request.setAttribute("ciudad_nacimiento", persona.getCiudadNacimiento());
+               request.setAttribute("fecha_nacimiento", df.format(persona.getFechaNacimiento()));
+               
                request.setAttribute("listaPersonas", listaPersonas);
                request.setAttribute("tipodoc", tipodoc);
+               
                request.getRequestDispatcher("Personas.jsp").forward(request, response);
+            }
+            if (accion.equals("eliminar")) {
+                String Documento = request.getParameter("documento");
+                String tipo_seleccionado = request.getParameter("tipo_documento");
+                TipoDocumento tipoSeleccionado = TipoDocumento.valueOf(tipo_seleccionado);
+                PersonaPK primaryKey = new PersonaPK(Documento, tipoSeleccionado);
+                controller.destroy(primaryKey);
+                limpiarRedireccionar(request, response);
             }
         }
     }
@@ -107,8 +142,8 @@ public class PersonaNaturalServlet extends HttpServlet {
             throws ServletException, IOException, ParseException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            System.out.println("conditional " + request.getParameter("conditional"));
             PersonaNaturalJpaController controller = (PersonaNaturalJpaController)getServletContext().getAttribute("personaNaturaljpa");
-            
             String Documento = request.getParameter("documento_persona");
             TipoDocumento tipo_seleccionado = TipoDocumento.valueOf(request.getParameter("tipo_seleccionado"));
             String nombre_persona = request.getParameter("nombre_persona");
@@ -120,13 +155,15 @@ public class PersonaNaturalServlet extends HttpServlet {
             String pais_nacimiento = request.getParameter("pais_nacimiento");
             String ciudad_nacimiento = request.getParameter("ciudad_nacimiento");
             Date fecha_nacimiento = df.parse(request.getParameter("fecha_nacimiento"));
-            
             PersonaNatural personaNatural = new PersonaNatural(ciudad_nacimiento, pais_nacimiento, fecha_nacimiento, Documento, tipo_seleccionado, nombre_persona, contacto_persona, correo_persona, direccion_persona, usuario, contrasena);
-            
-            controller.create(personaNatural);
-            
-           
-            limpiarRedireccionar(request, response);
+            System.out.println("entra" + request.getParameter("conditional"));
+            if (request.getParameter("conditional").equals("1")){
+                controller.edit(personaNatural);
+                limpiarRedireccionar(request, response);
+            }else {                
+                controller.create(personaNatural);
+                limpiarRedireccionar(request, response);
+            }
         }
     }
 
@@ -142,7 +179,11 @@ public class PersonaNaturalServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        metGet(request, response);
+        try {
+            metGet(request, response);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(PersonaNaturalServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

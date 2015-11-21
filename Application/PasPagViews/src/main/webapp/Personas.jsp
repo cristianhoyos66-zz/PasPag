@@ -26,6 +26,7 @@
         <form role="form" method="post" action="PersonaNaturalServlet">
             <div class="table-responsive">
                 <table  class="table table-bordered">
+                    <input type="hidden" name="conditional" value="<%=request.getAttribute("conditional")%>">
                     <tr>
                         <td>Documento</td>
                         <td><input type="text" name="documento_persona" value="<%=request.getAttribute("documento_persona")%>"></td>
@@ -35,7 +36,7 @@
                         <td>                    
                             <select name="tipo_seleccionado" value="<%=request.getAttribute("tipo_seleccionado")%>">
                                 <c:forEach items="${tipodoc}" var="tipo">
-                                    <option value="${tipo}">${tipo}</option>
+                                    <option ${tipo} value="${tipo}">${tipo}</option>
                                 </c:forEach> 
                             </select>
                         </td>
@@ -62,7 +63,7 @@
                     </tr>
                     <tr>
                         <td>Contraseña</td>
-                        <td><input type="text" name="contrasena" value="<%=request.getAttribute("contrasena")%>"></td>
+                        <td><input type="password" name="contrasena" value="<%=request.getAttribute("contrasena")%>"></td>
                     </tr>
                     <tr>
                         <td>Pais de nacimiento</td>
@@ -78,7 +79,7 @@
                     </tr>
                 </table>
                 <input class="btn btn-default" type="submit" value="Guardar">
-                <a href="PersonaNaturalServlet?accion=limpiar" class="btn btn-default">Limpiar</a>
+                <a href="PersonaNaturalServlet?accion=limpiarRedireccionar" class="btn btn-default">Limpiar</a>
             </div>  
             <table class = "table">
                 <caption>Lista de personas</caption>
@@ -104,8 +105,8 @@
                             <td> <c:out value="${persona.correo}"/></td>
                             <td> <c:out value="${persona.direccion}"/></td>
                             <td> <c:out value="${persona.usuario}"/></td>
-                            <td> <a class="btn btn-default" href="PersonaNaturalServlet?accion=set_data&documento=<c:out value="${persona.personaPK.documento}"/>&tipo_documento=<c:out value="${persona.personaPK.tipoDocumento}"/>">Modificar</a> </td>
-                            <td> <a class="btn btn-default" href="PersonaNaturalServlet?accion=eliminar&id=<c:out value="${tipo.id}"/>">Eliminar</a> </td>
+                            <td> <a class="btn btn-default" href="PersonaNaturalServlet?accion=set_data&conditional=<c:out value="1"/>&documento=<c:out value="${persona.personaPK.documento}"/>&tipo_documento=<c:out value="${persona.personaPK.tipoDocumento}"/>">Modificar</a> </td>
+                            <td> <a class="btn btn-default" href="PersonaNaturalServlet?accion=eliminar&documento=<c:out value="${persona.personaPK.documento}"/>&tipo_documento=<c:out value="${persona.personaPK.tipoDocumento}"/>">Eliminar</a> </td>
                         </tr>
                     </c:forEach> 
 

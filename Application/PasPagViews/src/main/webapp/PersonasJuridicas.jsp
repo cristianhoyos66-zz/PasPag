@@ -61,7 +61,7 @@
                         <td><input type="password" name="contrasena" value="<%=request.getAttribute("contrasena")%>"></td>
                     </tr>
                     <tr>
-                        <td>Pais de constitución</td>
+                        <td>País de constitución</td>
                         <td><input type="text" name="pais_nacimiento" value="<%=request.getAttribute("pais_nacimiento")%>"></td>
                     </tr>
                     <tr>
@@ -74,7 +74,7 @@
                     </tr>
                 </table>
                 <input class="btn btn-default" type="submit" value="Guardar">
-                <a href="PersonaNaturalServlet?accion=limpiarRedireccionar" class="btn btn-default">Limpiar</a>
+                <a href="PersonaJuridicaServlet?accion=limpiarRedireccionar" class="btn btn-default">Limpiar</a>
             </div>  
             <table class = "table">
                 <caption>Lista de personas</caption>

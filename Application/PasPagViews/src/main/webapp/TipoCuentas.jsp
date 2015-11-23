@@ -21,6 +21,7 @@
         <title>Tipos de cuenta</title>
     </head>
     <body>
+        <p><a href="index.jsp">Regresar al menú</a></p>
         <h1>Bienvenido</h1>
         <p>En esta sección se podrá gestionar los tipos de cuenta.</p>
         <form role="form" method="post" action="TipoCuentasServlet">

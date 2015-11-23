@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Personas
-    Created on : 24-oct-2015, 19:22:46
-    Author     : GALEANO
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -18,13 +13,13 @@
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <title>Personas</title>
+        <title>Entidad financiera</title>
     </head>
     <body>
         <p><a href="index.jsp">Regresar al menú</a></p>
         <h1>Bienvenido</h1>
-        <p>En esta sección se podrá gestionar los usuarios de la pasarela de pagos</p>
-        <form role="form" method="post" action="PersonaNaturalServlet">
+        <p>En esta sección se podrá gestionar las entidades financieras de la pasarela de pagos</p> 
+        <form role="form" method="post" action="EntidadFinancieraServlet">
             <div class="table-responsive">
                 <table  class="table table-bordered">
                     <input type="hidden" name="conditional" value="<%=request.getAttribute("conditional")%>">
@@ -34,19 +29,10 @@
                     </tr>
                     <tr>
                         <td>Tipo documento</td>
-                        <td>                    
-                            <select name="tipo_seleccionado" value="<%=request.getAttribute("tipo_seleccionado")%>">
-                                <option value="${tipo_seleccionado}" selected>${tipo_seleccionado}</option>
-                                <c:forEach items="${tipodoc}" var="tipo">
-                                    <c:if test="${tipo != tipo_seleccionado}">
-                                        <option value="${tipo}">${tipo}</option>
-                                    </c:if>
-                                </c:forEach> 
-                            </select>
-                        </td>
+                        <td><input type="text" name="tipo_seleccionado" readonly="true" value="<%=request.getAttribute("tipo_seleccionado")%>"></td>
                     </tr>
                     <tr>
-                        <td>Nombre y apellidos</td>
+                        <td>Nombre entidad financiera</td>
                         <td><input type="text" name="nombre_persona" value="<%=request.getAttribute("nombre_persona")%>"></td>
                     </tr>
                     <tr>
@@ -70,20 +56,20 @@
                         <td><input type="password" name="contrasena" value="<%=request.getAttribute("contrasena")%>"></td>
                     </tr>
                     <tr>
-                        <td>País de nacimiento</td>
+                        <td>País de constitución</td>
                         <td><input type="text" name="pais_nacimiento" value="<%=request.getAttribute("pais_nacimiento")%>"></td>
                     </tr>
                     <tr>
-                        <td>Ciudad de nacimiento</td>
+                        <td>Ciudad de constitución</td>
                         <td><input type="text" name="ciudad_nacimiento" value="<%=request.getAttribute("ciudad_nacimiento")%>"></td>
                     </tr>
                     <tr>
-                        <td>Fecha de nacimiento</td>
+                        <td>Fecha de constitución</td>
                         <td><input type="text" name="fecha_nacimiento" value="<%=request.getAttribute("fecha_nacimiento")%>"></td>
                     </tr>
                 </table>
                 <input class="btn btn-default" type="submit" value="Guardar">
-                <a href="PersonaNaturalServlet?accion=limpiarRedireccionar" class="btn btn-default">Limpiar</a>
+                <a href="EntidadFinancieraServlet?accion=limpiarRedireccionar" class="btn btn-default">Limpiar</a>
             </div>  
             <table class = "table">
                 <caption>Lista de personas</caption>
@@ -109,8 +95,8 @@
                             <td> <c:out value="${persona.correo}"/></td>
                             <td> <c:out value="${persona.direccion}"/></td>
                             <td> <c:out value="${persona.usuario}"/></td>
-                            <td> <a class="btn btn-default" href="PersonaNaturalServlet?accion=set_data&conditional=<c:out value="1"/>&documento=<c:out value="${persona.personaPK.documento}"/>&tipo_documento=<c:out value="${persona.personaPK.tipoDocumento}"/>">Modificar</a> </td>
-                            <td> <a class="btn btn-default" href="PersonaNaturalServlet?accion=eliminar&documento=<c:out value="${persona.personaPK.documento}"/>&tipo_documento=<c:out value="${persona.personaPK.tipoDocumento}"/>">Eliminar</a> </td>
+                            <td> <a class="btn btn-default" href="EntidadFinancieraServlet?accion=set_data&conditional=<c:out value="1"/>&documento=<c:out value="${persona.personaPK.documento}"/>&tipo_documento=<c:out value="${persona.personaPK.tipoDocumento}"/>">Modificar</a> </td>
+                            <td> <a class="btn btn-default" href="EntidadFinancieraServlet?accion=eliminar&documento=<c:out value="${persona.personaPK.documento}"/>&tipo_documento=<c:out value="${persona.personaPK.tipoDocumento}"/>">Eliminar</a> </td>
                         </tr>
                     </c:forEach> 
 

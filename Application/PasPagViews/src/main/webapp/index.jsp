@@ -23,8 +23,7 @@
     <body>
         <h1>¿Qué desea hacer?</h1>
         <a href="PersonaNaturalServlet?accion=listPersonasNaturales">Gestionar personas</a><br>
-        <a href="Cuentas.jsp">Gestionar companías</a><br>
-        <a href="Bancos.jsp">Gestionar bancos</a><br>
+        <a href="PersonaJuridicaServlet?accion=listPersonasJuridicas">Gestionar empresas</a><br>
         <a href="TipoCuentasServlet?accion=listTipoCuentas">Gestionar tipo de cuentas</a>
     </body>
 </html>

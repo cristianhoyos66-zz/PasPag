@@ -35,8 +35,11 @@
                         <td>Tipo documento</td>
                         <td>                    
                             <select name="tipo_seleccionado" value="<%=request.getAttribute("tipo_seleccionado")%>">
+                                <option value="${tipo_seleccionado}" selected>${tipo_seleccionado}</option>
                                 <c:forEach items="${tipodoc}" var="tipo">
-                                    <option ${tipo} value="${tipo}">${tipo}</option>
+                                    <c:if test="${tipo != tipo_seleccionado}">
+                                        <option value="${tipo}">${tipo}</option>
+                                    </c:if>
                                 </c:forEach> 
                             </select>
                         </td>

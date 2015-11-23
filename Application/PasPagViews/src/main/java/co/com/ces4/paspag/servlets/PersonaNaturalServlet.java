@@ -105,13 +105,16 @@ public class PersonaNaturalServlet extends HttpServlet {
                               
                String Documento = request.getParameter("documento");
                String tipo_seleccionado = request.getParameter("tipo_documento");
+               String conditional = request.getParameter("conditional"); 
                TipoDocumento tipoSeleccionado = TipoDocumento.valueOf(tipo_seleccionado);
                PersonaPK primaryKey = new PersonaPK(Documento, tipoSeleccionado);
                
                PersonaNatural persona = controller.findPersonaNatural(primaryKey);
                
+               request.setAttribute("conditional", conditional);
                request.setAttribute("documento_persona", Documento);
-               request.setAttribute("tipo_seleccionado", tipoSeleccionado);
+                System.out.println("tipo seleccionado" + tipo_seleccionado);
+               request.setAttribute("tipo_seleccionado", tipo_seleccionado);
                request.setAttribute("nombre_persona", persona.getNombre());
                request.setAttribute("contacto_persona", persona.getContacto());
                request.setAttribute("correo_persona", persona.getCorreo());

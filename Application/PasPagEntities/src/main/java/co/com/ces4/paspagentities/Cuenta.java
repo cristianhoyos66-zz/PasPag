@@ -6,6 +6,7 @@
 package co.com.ces4.paspagentities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -40,12 +41,14 @@ public class Cuenta implements Serializable {
     @ManyToOne
     @JoinColumn(name = "DNITIPO_CUENTA")
     private TipoCuenta tipo_cuenta;
+    
     @ManyToOne(optional = true)
     @JoinColumns({
         @JoinColumn(name = "DNIDOCUMENTO_PERSONA_JURIDICA", referencedColumnName="DNIDOCUMENTO"),
         @JoinColumn(name = "OPTIPO_DOCUMENTO_CLIENTE", referencedColumnName="OPTIPO_DOCUMENTO")
     })
     private PersonaJuridica personaJuridica;
+    
     @ManyToOne(optional = true)
     @JoinColumns({
         @JoinColumn(name = "DNIDOCUMENTO_PERSONA_NATURAL", referencedColumnName="DNIDOCUMENTO"),
@@ -59,16 +62,22 @@ public class Cuenta implements Serializable {
         @JoinColumn(name = "OPTIPO_DOCUMENTO_BANCO", referencedColumnName="OPTIPO_DOCUMENTO")
     })
     private EntidadFinanciera entidadFinanciera;
-
     
+    @Column(name = "DSSALDO")
+    private BigDecimal saldo;    
     
     public Cuenta() {
     }
 
-    public Cuenta(String numero_cuenta, Date valido_desde, Date valido_hasta) {
+    public Cuenta(String numero_cuenta, Date valido_desde, Date valido_hasta, TipoCuenta tipoCuenta, PersonaJuridica personaJuridica, PersonaNatural personaNatural, EntidadFinanciera entidadFinanciera, BigDecimal saldo) {
         this.numero_cuenta = numero_cuenta;
         this.valido_desde = valido_desde;
         this.valido_hasta = valido_hasta;
+        this.entidadFinanciera = entidadFinanciera;
+        this.personaJuridica = personaJuridica;
+        this.tipo_cuenta = tipoCuenta;
+        this.personaNatural = personaNatural;
+        this.saldo = saldo;
     }
 
     public Date getValido_desde() {
@@ -126,6 +135,14 @@ public class Cuenta implements Serializable {
 
     public void setEntidadFinanciera(EntidadFinanciera entidadFinanciera) {
         this.entidadFinanciera = entidadFinanciera;
+    }
+    
+     public BigDecimal getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(BigDecimal saldo) {
+        this.saldo = saldo;
     }
     
      @Override

@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
@@ -134,5 +135,39 @@ public class TipoCuentaJpaController implements Serializable {
             em.close();
         }
     }
+    
+    public List<TipoCuenta> obtenerTipoPorDescripcion(String descripcion) {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<TipoCuenta> cq = cb.createQuery(TipoCuenta.class);
+            Root<TipoCuenta> emp = cq.from(TipoCuenta.class);
+            cq.select(emp).where(cb.equal(emp.get("descripcion"), descripcion));
+            Query q = em.createQuery(cq);
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
+    }   
+    
+    public List<TipoCuenta> obtenerRegistrosOrdenados(boolean ad) {
+        EntityManager em = getEntityManager();
+        List <TipoCuenta> listTipo;
+        try {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<TipoCuenta> cq = cb.createQuery(TipoCuenta.class);
+            Root<TipoCuenta> emp = cq.from(TipoCuenta.class);
+            if (ad == true) {
+                cq.orderBy(cb.asc(emp.get("descripcion")));
+            }else {
+                cq.orderBy(cb.desc(emp.get("descripcion")));
+            }
+            Query q = em.createQuery(cq);
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
+    } 
+    
     
 }

@@ -22,6 +22,13 @@
         </dependency>
 
         <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.8.3</version>
+        </dependency>
+
+
+        <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>PasPagControllers</artifactId>
             <version>${project.version}</version>

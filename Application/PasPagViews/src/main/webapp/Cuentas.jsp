@@ -21,6 +21,7 @@
         <title>Cuentas</title>
     </head>
     <body>
+        <p><a href="index.jsp">Regresar al menú</a></p>
         <h1>Bienvenido</h1>
         <p>En esta sección se podrá gestionar las cuentas de la pasarela de pagos.</p>
         <form role="form" method="post" action="CuentasServlet">
@@ -47,10 +48,10 @@
                         <td>Tipo de cuenta</td>
                         <td>
                             <select name="tipo_cuenta_seleccionada" value="<%=request.getAttribute("tipo_cuenta_seleccionada")%>">
-                                <option value="${tipo_cuenta_seleccionada}" selected>${tipo_cuenta_seleccionada}</option>
+                                <option value="${empty tipo_cuenta_seleccionada ? null : tipo_cuenta_seleccionada.id}" selected>${empty tipo_cuenta_seleccionada ? null : tipo_cuenta_seleccionada.descripcion}</option>
                                 <c:forEach items="${tipo_cuentas}" var="tipo">
                                     <c:if test="${tipo != tipo_cuenta_seleccionada}">
-                                        <option value="${tipo}">${tipo}</option>
+                                        <option value="${tipo.id}">${tipo.descripcion}</option>
                                     </c:if>
                                 </c:forEach> 
                             </select>
@@ -60,10 +61,10 @@
                         <td>Empresa</td>
                         <td>
                             <select name="empresa_seleccionada" value="<%=request.getAttribute("empresa_seleccionada")%>">
-                                <option value="${empresa_seleccionada}" selected>${empresa_seleccionada}</option>
+                                <option value="${empty empresa_seleccionada ? null : empresa_seleccionada.personaPK}" selected>${empty empresa_seleccionada ? null : empresa_seleccionada.nombre}</option>
                                 <c:forEach items="${empresas}" var="empresa">
                                     <c:if test="${empresa != empresa_seleccionada}">
-                                        <option value="${empresa}">${empresa}</option>
+                                        <option value="${empresa.personaPK}">${empresa.nombre}</option>
                                     </c:if>
                                 </c:forEach> 
                             </select>
@@ -73,10 +74,10 @@
                         <td>Persona</td>
                         <td>
                             <select name="persona_seleccionada" value="<%=request.getAttribute("persona_seleccionada")%>">
-                                <option value="${persona_seleccionada}" selected>${persona_seleccionada}</option>
+                                <option value="${empty persona_seleccionada ? null : persona_seleccionada.personaPK}" selected>${empty persona_seleccionada ? null : persona_seleccionada.nombre}</option>
                                 <c:forEach items="${personas}" var="persona">
                                     <c:if test="${persona != persona_seleccionada}">
-                                        <option value="${persona}">${persona}</option>
+                                        <option value="${persona.personaPK}">${persona.nombre}</option>
                                     </c:if>
                                 </c:forEach> 
                             </select>
@@ -86,10 +87,10 @@
                         <td>Entidad bancaria</td>
                         <td>
                             <select name="entidad_seleccionada" value="<%=request.getAttribute("entidad_seleccionada")%>">
-                                <option value="${entidad_seleccionada}" selected>${entidad_seleccionada}</option>
+                                <option value="${empty entidad_seleccionada ? null : entidad_seleccionada.personaPK}" selected>${empty entidad_seleccionada ? null : entidad_seleccionada.nombre}</option>
                                 <c:forEach items="${entidades_bancarias}" var="entidad">
                                     <c:if test="${entidad != entidad_seleccionada}">
-                                        <option value="${entidad}">${entidad}</option>
+                                        <option value="${entidad.personaPK}">${entidad.nombre}</option>
                                     </c:if>
                                 </c:forEach> 
                             </select>

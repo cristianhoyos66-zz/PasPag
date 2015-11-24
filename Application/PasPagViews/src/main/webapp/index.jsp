@@ -25,6 +25,7 @@
         <a href="PersonaNaturalServlet?accion=listPersonasNaturales">Gestionar personas</a><br>
         <a href="PersonaJuridicaServlet?accion=listPersonasJuridicas">Gestionar empresas</a><br>
         <a href="EntidadFinancieraServlet?accion=listEntidadesFinancieras">Gestionar entidades financieras</a><br>
-        <a href="TipoCuentasServlet?accion=listTipoCuentas">Gestionar tipo de cuentas</a>
+        <a href="TipoCuentasServlet?accion=listTipoCuentas">Gestionar tipo de cuentas</a><br>
+        <a href="CuentasServlet?accion=listCuentas">Gestionar cuentas</a>
     </body>
 </html>

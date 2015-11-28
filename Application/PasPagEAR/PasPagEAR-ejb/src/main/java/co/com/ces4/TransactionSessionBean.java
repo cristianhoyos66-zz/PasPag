@@ -19,6 +19,7 @@ import co.com.ces4.paspagentities.TipoTransaccion;
 import co.com.ces4.paspagentities.PersonaPK;
 import co.com.ces4.paspagentities.TipoDocumento;
 import co.com.ces4.paspagentities.Transaccion;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManagerFactory;
@@ -74,8 +75,27 @@ public class TransactionSessionBean implements TransactionSessionBeanRemote {
     }
 
     @Override
-    public String listarTransacciones(PersonaPK vendedor, PersonaPK comprador, Date fechaInicio, Date fechaFin) {
-        return null;
+    public List<Transaccion> listarTransaccionesVendedor(PersonaPK vendedor) {
+        TransaccionJpaController controller = new TransaccionJpaController(emf);
+        CuentaJpaController cuentaController = new CuentaJpaController(emf);
+        
+        Cuenta cuentaDestino = cuentaController.encontrarCuentaPorPersonaJuridica(vendedor);
+        if (cuentaDestino.getNumero_cuenta().equals("")){
+            cuentaDestino = cuentaController.encontrarCuentaPorPersonaNatural(vendedor);   
+        }
+        return controller.obtenerTransaccionesPorVendedor(cuentaDestino);
+    }
+
+    @Override
+    public List<Transaccion> listarTransaccionesComprador(PersonaPK comprador) {
+        TransaccionJpaController controller = new TransaccionJpaController(emf);
+        CuentaJpaController cuentaController = new CuentaJpaController(emf);
+        
+        Cuenta cuentaOrigen = cuentaController.encontrarCuentaPorPersonaJuridica(comprador);
+        if (cuentaOrigen.getNumero_cuenta().equals("")){
+            cuentaOrigen = cuentaController.encontrarCuentaPorPersonaNatural(comprador);   
+        }
+        return controller.obtenerTransaccionesPorComprador(cuentaOrigen);
     }
 
     

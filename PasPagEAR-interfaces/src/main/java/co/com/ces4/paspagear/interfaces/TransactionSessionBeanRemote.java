@@ -10,6 +10,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 import javax.ejb.Remote;
 import co.com.ces4.paspagentities.Estado;
+import co.com.ces4.paspagentities.Transaccion;
+import java.util.List;
 
 /**
  *
@@ -20,6 +22,8 @@ public interface TransactionSessionBeanRemote {
     
     Estado create(PersonaPK vendedor, PersonaPK comprador, BigDecimal precio);
     
-    String listarTransacciones(PersonaPK vendedor, PersonaPK comprador, Date fechaInicio, Date fechaFin);
+    List<Transaccion> listarTransaccionesVendedor(PersonaPK vendedor);
+    
+    List<Transaccion> listarTransaccionesComprador(PersonaPK comprador);
 
 }

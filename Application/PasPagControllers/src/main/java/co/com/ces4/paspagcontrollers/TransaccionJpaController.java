@@ -6,6 +6,7 @@
 package co.com.ces4.paspagcontrollers;
 
 import co.com.ces4.paspagcontrollers.exceptions.NonexistentEntityException;
+import co.com.ces4.paspagentities.Cuenta;
 import co.com.ces4.paspagentities.Transaccion;
 import java.io.Serializable;
 import java.util.List;
@@ -13,6 +14,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
@@ -133,6 +135,20 @@ public class TransaccionJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+    
+    public List<Transaccion> obtenerTransaccionesPorVendedor(Cuenta cuenta) {
+        EntityManager em = getEntityManager();
+        TypedQuery<Transaccion> listaTransacciones = em.createQuery("SELECT t FROM Transaccion WHERE t.cuenta_destino = :cuenta", Transaccion.class);
+        listaTransacciones.setParameter("cuenta", cuenta);
+        return listaTransacciones.getResultList();
+    }
+    
+    public List<Transaccion> obtenerTransaccionesPorComprador(Cuenta cuenta) {
+        EntityManager em = getEntityManager();
+        TypedQuery<Transaccion> listaTransacciones = em.createQuery("SELECT t FROM Transaccion WHERE t.cuenta_origen = :cuenta", Transaccion.class);
+        listaTransacciones.setParameter("cuenta", cuenta);
+        return listaTransacciones.getResultList();
     }
     
 }

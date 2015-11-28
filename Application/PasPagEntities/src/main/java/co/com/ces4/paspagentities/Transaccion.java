@@ -66,6 +66,16 @@ public class Transaccion implements Serializable {
     
     public Transaccion() {
     }
+
+    public Transaccion(BigDecimal montoTransaccion, TipoTransaccion tipoTransaccion, Estado estado, Cuenta cuenta_origen, Cuenta cuenta_destino, String descripcion, Date fecha_transaccion) {
+        this.montoTransaccion = montoTransaccion;
+        this.tipoTransaccion = tipoTransaccion;
+        this.estado = estado;
+        this.cuenta_origen = cuenta_origen;
+        this.cuenta_destino = cuenta_destino;
+        this.descripcion = descripcion;
+        this.fecha_transaccion = fecha_transaccion;
+    }
     
     public Integer getIdTrans() {
         return idTrans;

@@ -9,6 +9,7 @@ import co.com.ces4.paspagcontrollers.exceptions.NonexistentEntityException;
 import co.com.ces4.paspagentities.Cuenta;
 import co.com.ces4.paspagentities.Transaccion;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -148,6 +149,13 @@ public class TransaccionJpaController implements Serializable {
         EntityManager em = getEntityManager();
         TypedQuery<Transaccion> listaTransacciones = em.createQuery("SELECT t FROM Transaccion WHERE t.cuenta_origen = :cuenta", Transaccion.class);
         listaTransacciones.setParameter("cuenta", cuenta);
+        return listaTransacciones.getResultList();
+    }
+    
+    public List<Transaccion> listarTransaccionesPrecio(BigDecimal precio) {
+        EntityManager em = getEntityManager();
+        TypedQuery<Transaccion> listaTransacciones = em.createQuery("SELECT t FROM Transaccion WHERE t.montoTransaccion = :precio", Transaccion.class);
+        listaTransacciones.setParameter("precio", precio);
         return listaTransacciones.getResultList();
     }
     

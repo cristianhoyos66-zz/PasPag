@@ -8,6 +8,8 @@ package co.com.ces4.paspagcontrollers;
 import co.com.ces4.paspagcontrollers.exceptions.NonexistentEntityException;
 import co.com.ces4.paspagcontrollers.exceptions.PreexistingEntityException;
 import co.com.ces4.paspagentities.Cuenta;
+import co.com.ces4.paspagentities.PersonaJuridica;
+import co.com.ces4.paspagentities.PersonaNatural;
 import co.com.ces4.paspagentities.PersonaPK;
 import java.io.Serializable;
 import java.util.List;
@@ -143,14 +145,14 @@ public class CuentaJpaController implements Serializable {
         }
     }
     
-    public Cuenta encontrarCuentaPorPersonaJuridica (PersonaPK persona) {
+    public Cuenta encontrarCuentaPorPersonaJuridica (PersonaJuridica persona) {
         EntityManager em = getEntityManager();
         TypedQuery<Cuenta> cuenta = em.createQuery("SELECT c FROM Cuenta c WHERE c.personaJuridica=:persona", Cuenta.class);
         cuenta.setParameter("persona", persona);
         return cuenta.getSingleResult();
     }
     
-    public Cuenta encontrarCuentaPorPersonaNatural (PersonaPK persona) {
+    public Cuenta encontrarCuentaPorPersonaNatural (PersonaNatural persona) {
         EntityManager em = getEntityManager();
         TypedQuery<Cuenta> cuenta = em.createQuery("SELECT c FROM Cuenta c WHERE c.personaNatural=:persona", Cuenta.class);
         cuenta.setParameter("persona", persona);

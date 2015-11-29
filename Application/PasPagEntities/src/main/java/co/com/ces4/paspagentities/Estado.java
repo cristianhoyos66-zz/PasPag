@@ -5,12 +5,14 @@
  */
 package co.com.ces4.paspagentities;
 
+import java.io.Serializable;
+
 /**
  *
  * @author cristian
  */
 
-public enum Estado {
+public enum Estado implements Serializable{
     
     EXITOSA, FALLIDA
     

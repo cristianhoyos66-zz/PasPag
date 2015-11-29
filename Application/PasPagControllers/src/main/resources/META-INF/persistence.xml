@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="co.com.ces4_PasPagControllers_jar_1PU" transaction-type="RESOURCE_LOCAL">
-        <!-- Este se usa  para ser accedido desde afuera-->
-      <!--persistence-unit name="co.com.ces4_PasPagControllers_jar_1PU" transaction-type="JTA"-->
-      
+    <!-- Este se usa  para ser accedido desde afuera-->
+    <!--persistence-unit name="co.com.ces4_PasPagControllers_jar_1PU" transaction-type="JTA"-->
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    
-    <non-jta-data-source>jdbc/PasPagDS</non-jta-data-source>
-    
+    <jta-data-source>jdbc/PasPagDS</jta-data-source>
     <class>co.com.ces4.paspagentities.Cuenta</class>
     <class>co.com.ces4.paspagentities.EntidadFinanciera</class>
     <class>co.com.ces4.paspagentities.PersonaJuridica</class>

@@ -102,6 +102,7 @@ public class PersonaNaturalJpaController implements Serializable {
     }
 
     public List<PersonaNatural> findPersonaNaturalEntities() {
+        System.out.println("entra");
         return findPersonaNaturalEntities(true, -1, -1);
     }
 

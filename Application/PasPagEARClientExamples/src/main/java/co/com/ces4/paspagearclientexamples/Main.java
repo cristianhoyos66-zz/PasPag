@@ -5,9 +5,12 @@
  */
 package co.com.ces4.paspagearclientexamples;
 
+import co.com.ces4.paspagear.interfaces.PersonasSessionBeanRemote;
 import co.com.ces4.paspagear.interfaces.TransactionSessionBeanRemote;
+import co.com.ces4.paspagentities.PersonaNatural;
 import co.com.ces4.paspagentities.PersonaPK;
 import co.com.ces4.paspagentities.TipoDocumento;
+import co.com.ces4.paspagentities.Transaccion;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
@@ -27,8 +30,23 @@ public class Main {
             ExampleServiceLocator esl = new ExampleServiceLocator(props);
             //Portable JNDI names for EJB TransactionSessionBean: [java:global/PasPagEAR-ear-1/PasPagEAR-ejb-1/TransactionSessionBean, java:global/PasPagEAR-ear-1/PasPagEAR-ejb-1/TransactionSessionBean!co.com.ces4.paspagear.interfaces.TransactionSessionBeanRemote]
             TransactionSessionBeanRemote transactionSessionBeanRemote = esl.<TransactionSessionBeanRemote>getEJBInstance("java:global/PasPagEAR-ear-1/PasPagEAR-ejb-1/TransactionSessionBean");
-            PersonaPK vendedor = new PersonaPK("987654321", TipoDocumento.NIT);
-            System.out.println(transactionSessionBeanRemote.listarTransaccionesVendedor(vendedor));
+            PersonasSessionBeanRemote personasSessionBeanRemote = esl.<PersonasSessionBeanRemote>getEJBInstance("java:global/PasPagEAR-ear-1/PasPagEAR-ejb-1/PersonasSessionBean");
+            
+            PersonaPK comprador = new PersonaPK("123456789", TipoDocumento.CEDULA);
+            
+            PersonaNatural compradorPersonaNatural = personasSessionBeanRemote.EncontrarPersonaNatural(comprador);
+            
+            //System.out.println(compradorPersonaNatural);
+            
+            /*for (PersonaNatural persona  : personasSessionBeanRemote.listarPersonasNaturales()) {
+                System.out.println(persona);
+            }*/
+            
+            System.out.println(transactionSessionBeanRemote.prueba());
+            
+            /*for (Transaccion transaccion  : transactionSessionBeanRemote.listarTransaccionesCompradorPersonaNatural(compradorPersonaNatural)) {
+                System.out.println(transaccion);
+            }*/
         }
     }
 }

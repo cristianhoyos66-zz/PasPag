@@ -5,6 +5,7 @@
  */
 package co.com.ces4.paspagentities;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
@@ -20,7 +21,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "TPP_PERSONAS_NATURALES")
-public class PersonaNatural extends Persona{
+public class PersonaNatural extends Persona implements Serializable{
     
     @Column(name = "DSCIUDAD_NACIMIENTO")
     private String ciudadNacimiento;

@@ -15,5 +15,7 @@
     * **PasPagViews:** Se encuentran las vistas implementadas para el ORM, los controladores generados a partir de este, las consultas JPQL y las consultas de criteria api.
     
   * **documentation:** Se pueden encontrar el **_diagrama entidad-relación_** y el **_diagrama de clases_**.
-  * **Pendientes:** Aún falta la implementación de la cola de mensajes, pero esta ya podría estar escuchando, creando los recursos de esta en el administrador del glassfish y además estaré subiendo algunos métodos para los EJB.  
+  * **Pendientes:** Aún falta la implementación de la cola de mensajes, pero esta ya podría estar escuchando, creando los recursos de esta en el administrador del glassfish y además estaré subiendo algunos métodos para los EJB.    
+  * **Nombre del data source:** jdbc/PasPagDS  
+  * **Nombre del pool de conexiones:** PasPagConnectionPool  
   

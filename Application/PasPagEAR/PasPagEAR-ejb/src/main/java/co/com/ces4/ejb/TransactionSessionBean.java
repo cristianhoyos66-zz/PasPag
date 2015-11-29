@@ -86,15 +86,14 @@ public class TransactionSessionBean implements TransactionSessionBeanRemote {
 
     @Override
     public List<Transaccion> listarTransaccionesVendedor(PersonaPK vendedor) {
-        /*TransaccionJpaController controller = new TransaccionJpaController(emf);
+        TransaccionJpaController controller = new TransaccionJpaController(emf);
         CuentaJpaController cuentaController = new CuentaJpaController(emf);
         
         Cuenta cuentaDestino = cuentaController.encontrarCuentaPorPersonaJuridica(vendedor);
         if (cuentaDestino.getNumero_cuenta().equals("")){
             cuentaDestino = cuentaController.encontrarCuentaPorPersonaNatural(vendedor);   
         }
-        return controller.obtenerTransaccionesPorVendedor(cuentaDestino);*/
-        return null;
+        return controller.obtenerTransaccionesPorVendedor(cuentaDestino);
     }
 
     @Override

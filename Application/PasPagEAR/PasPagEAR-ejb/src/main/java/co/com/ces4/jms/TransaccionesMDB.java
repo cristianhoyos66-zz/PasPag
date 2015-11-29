@@ -14,7 +14,7 @@ import javax.jms.MessageListener;
  *
  * @author cristian
  */
-@MessageDriven(activationConfig = {
+@MessageDriven(mappedName = "jms/TransaccionesQueue", activationConfig = {
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
     @ActivationConfigProperty(propertyName = "connectionFactoryJndiName", propertyValue = "jms/TransaccionesQueueConnectionFactory")
 })

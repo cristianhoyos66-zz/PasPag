@@ -17,20 +17,18 @@ import javax.naming.NamingException;
 /**
  *
  * @author cristian
- */
+ */                                                                         
 public class Main {
      public static void main(String[] args) throws IOException, NamingException {
         Properties props = new Properties();
         InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("ServiceLocator.properties");
-        System.out.println(inputStream);
         if (inputStream != null) {
             props.load(inputStream);
             ExampleServiceLocator esl = new ExampleServiceLocator(props);
-            TransactionSessionBeanRemote transactionSessionBeanRemote = esl.<TransactionSessionBeanRemote>getEJBInstance("ejb/TransactionBean");
+            //Portable JNDI names for EJB TransactionSessionBean: [java:global/PasPagEAR-ear-1/PasPagEAR-ejb-1/TransactionSessionBean, java:global/PasPagEAR-ear-1/PasPagEAR-ejb-1/TransactionSessionBean!co.com.ces4.paspagear.interfaces.TransactionSessionBeanRemote]
+            TransactionSessionBeanRemote transactionSessionBeanRemote = esl.<TransactionSessionBeanRemote>getEJBInstance("java:global/PasPagEAR-ear-1/PasPagEAR-ejb-1/TransactionSessionBean");
             PersonaPK vendedor = new PersonaPK("987654321", TipoDocumento.NIT);
-            PersonaPK comprador = new PersonaPK("123456789", TipoDocumento.CEDULA);
-            BigDecimal precio = new BigDecimal(500);
-            System.out.println(transactionSessionBeanRemote.create(vendedor, comprador, precio).toString());
+            System.out.println(transactionSessionBeanRemote.listarTransaccionesVendedor(vendedor));
         }
     }
 }

@@ -16,10 +16,10 @@ import javax.persistence.Persistence;
  */
 public class pruebaQueries {
     public static void main(String[] args) throws Exception {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("co.com.ces4_PasPagControllers_jar_1PU");
+        /*EntityManagerFactory emf = Persistence.createEntityManagerFactory("co.com.ces4_PasPagControllers_jar_1PU");
         
         PersonaNaturalJpaController personaJpaController = new PersonaNaturalJpaController(emf);
-        TipoCuentaJpaController tipoCuentaJpaController = new TipoCuentaJpaController(emf);
+        TipoCuentaJpaController tipoCuentaJpaController = new TipoCuentaJpaController(emf);*/
 
         
         /*for (PersonaNatural persona  : personaJpaController.encontrarPersonaPorPais("k")) {
@@ -46,8 +46,8 @@ public class pruebaQueries {
         /*for (TipoCuenta tipo  : tipoCuentaJpaController.obtenerTipoPorDescripcion("Cuenta de cheques")) {
             System.out.println(tipo);
         }*/
-        for (TipoCuenta tipo  : tipoCuentaJpaController.obtenerRegistrosOrdenados(false)) {
+        /*for (TipoCuenta tipo  : tipoCuentaJpaController.obtenerRegistrosOrdenados(false)) {
             System.out.println(tipo);
-        }
+        }*/
     }
 }

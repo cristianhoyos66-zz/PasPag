@@ -23,27 +23,37 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 
 /**
  *
  * @author cristian
  */
-@EJB(mappedName = "ejb/TransactionBean")
+@EJB(mappedName = "ejb/TransactionBean", name = "ejb/TransactionBean", beanInterface = co.com.ces4.paspagear.interfaces.TransactionSessionBeanRemote.class)
 @Stateless
 public class TransactionSessionBean implements TransactionSessionBeanRemote {
-
-    @PersistenceContext(unitName = "co.com.ces4_PasPagControllers_jar_1PU")
+    
+    //Este se usa cuando la unidad de persistencia es jta
+    //@PersistenceContext(unitName = "co.com.ces4_PasPagControllers_jar_1PU")
     private EntityManagerFactory emf;
+
+    public TransactionSessionBean() {
+        try {
+            emf = Persistence.createEntityManagerFactory("co.com.ces4_PasPagControllers_jar_1PU");
+        } catch (Exception e) {
+            Logger.getLogger(TransactionSessionBean.class.getName()).log(Level.SEVERE, "Error generando instancia", e);
+        }
+    }    
     
     @Override
     public Estado create(PersonaPK vendedor, PersonaPK comprador, BigDecimal precio) {
-        TransaccionJpaController controller = new TransaccionJpaController(emf);
+        /*TransaccionJpaController controller = new TransaccionJpaController(emf);
         CuentaJpaController cuentaController = new CuentaJpaController(emf);
         
         Cuenta cuentaDestino = cuentaController.encontrarCuentaPorPersonaJuridica(vendedor);
         if (cuentaDestino.getNumero_cuenta().equals("")){
-            cuentaDestino = cuentaController.encontrarCuentaPorPersonaNatural(vendedor);   
+            cuentaDestino = cuentaController.encontrarCuentaPorPersonaJuridica(vendedor);   
         }
         Cuenta cuentaOrigen = cuentaController.encontrarCuentaPorPersonaJuridica(comprador);
         if (cuentaOrigen.getNumero_cuenta().equals("")){
@@ -71,19 +81,20 @@ public class TransactionSessionBean implements TransactionSessionBeanRemote {
 
             controller.create(transaccion);
             return estado;
-        }
+        }*/return null;
     }
 
     @Override
     public List<Transaccion> listarTransaccionesVendedor(PersonaPK vendedor) {
-        TransaccionJpaController controller = new TransaccionJpaController(emf);
+        /*TransaccionJpaController controller = new TransaccionJpaController(emf);
         CuentaJpaController cuentaController = new CuentaJpaController(emf);
         
         Cuenta cuentaDestino = cuentaController.encontrarCuentaPorPersonaJuridica(vendedor);
         if (cuentaDestino.getNumero_cuenta().equals("")){
             cuentaDestino = cuentaController.encontrarCuentaPorPersonaNatural(vendedor);   
         }
-        return controller.obtenerTransaccionesPorVendedor(cuentaDestino);
+        return controller.obtenerTransaccionesPorVendedor(cuentaDestino);*/
+        return null;
     }
 
     @Override

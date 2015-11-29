@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-    <artifactId>PasPagEAR</artifactId>
-    <groupId>co.com.ces4</groupId>
-    <version>1</version>
-  </parent>
+        <artifactId>PasPagEAR</artifactId>
+        <groupId>co.com.ces4</groupId>
+        <version>1</version>
+    </parent>
 
     <groupId>co.com.ces4</groupId>
     <artifactId>PasPagEAR-ejb</artifactId>
@@ -22,7 +22,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-                <artifactId>PasPagControllers</artifactId>
+            <artifactId>PasPagControllers</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -35,6 +35,11 @@
             <artifactId>javaee-api</artifactId>
             <version>7.0</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbyclient</artifactId>
+            <version>10.11.1.1</version>
         </dependency>
     </dependencies>
 

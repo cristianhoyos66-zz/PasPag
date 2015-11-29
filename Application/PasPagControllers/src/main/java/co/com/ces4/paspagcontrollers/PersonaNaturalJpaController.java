@@ -102,7 +102,6 @@ public class PersonaNaturalJpaController implements Serializable {
     }
 
     public List<PersonaNatural> findPersonaNaturalEntities() {
-        System.out.println("entra");
         return findPersonaNaturalEntities(true, -1, -1);
     }
 
@@ -111,6 +110,7 @@ public class PersonaNaturalJpaController implements Serializable {
     }
 
     private List<PersonaNatural> findPersonaNaturalEntities(boolean all, int maxResults, int firstResult) {
+        System.out.println("entra2");
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();

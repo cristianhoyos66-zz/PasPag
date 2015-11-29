@@ -4,7 +4,7 @@
     <!-- Este se usa  para ser accedido desde afuera-->
     <!--persistence-unit name="co.com.ces4_PasPagControllers_jar_1PU" transaction-type="JTA"-->
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <jta-data-source>jdbc/PasPagDS</jta-data-source>
+    <non-jta-data-source>jdbc/PasPagDS</non-jta-data-source>
     <class>co.com.ces4.paspagentities.Cuenta</class>
     <class>co.com.ces4.paspagentities.EntidadFinanciera</class>
     <class>co.com.ces4.paspagentities.PersonaJuridica</class>

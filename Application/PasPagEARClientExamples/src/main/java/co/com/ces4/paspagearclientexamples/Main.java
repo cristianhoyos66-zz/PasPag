@@ -13,6 +13,7 @@ import co.com.ces4.paspagentities.TipoDocumento;
 import co.com.ces4.paspagentities.Transaccion;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.util.Properties;
 import javax.naming.NamingException;

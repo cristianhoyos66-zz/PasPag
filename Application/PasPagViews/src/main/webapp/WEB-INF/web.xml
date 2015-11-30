@@ -4,6 +4,15 @@
         <description>ServletContextListener</description>
         <listener-class>co.com.ces4.paspag.listener.BootstrapListener</listener-class>
     </listener>
+    <display-name>PasPagViews</display-name>
+    <servlet>
+        <servlet-name>TransaccionServlet</servlet-name>
+        <servlet-class>co.com.ces4.paspag.servlets.TransaccionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TransaccionServlet</servlet-name>
+        <url-pattern>/TransaccionServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

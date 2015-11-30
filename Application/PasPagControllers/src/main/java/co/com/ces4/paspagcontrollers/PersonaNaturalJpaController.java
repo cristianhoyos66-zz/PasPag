@@ -10,6 +10,7 @@ import co.com.ces4.paspagcontrollers.exceptions.PreexistingEntityException;
 import co.com.ces4.paspagentities.PersonaNatural;
 import co.com.ces4.paspagentities.PersonaPK;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -110,7 +111,6 @@ public class PersonaNaturalJpaController implements Serializable {
     }
 
     private List<PersonaNatural> findPersonaNaturalEntities(boolean all, int maxResults, int firstResult) {
-        System.out.println("entra2");
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
@@ -129,6 +129,7 @@ public class PersonaNaturalJpaController implements Serializable {
     public PersonaNatural findPersonaNatural(PersonaPK id) {
         EntityManager em = getEntityManager();
         try {
+            System.out.println("acá es" + em);
             return em.find(PersonaNatural.class, id);
         } finally {
             em.close();

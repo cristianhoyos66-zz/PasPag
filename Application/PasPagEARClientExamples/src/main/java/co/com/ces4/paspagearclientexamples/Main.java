@@ -34,13 +34,13 @@ public class Main {
             
             PersonaPK comprador = new PersonaPK("123456789", TipoDocumento.CEDULA);
             
-            //PersonaNatural compradorPersonaNatural = personasSessionBeanRemote.EncontrarPersonaNatural(comprador);
+            PersonaNatural compradorPersonaNatural = personasSessionBeanRemote.EncontrarPersonaNatural(comprador);
             
-            //System.out.println(compradorPersonaNatural);
+            System.out.println(compradorPersonaNatural);
             
-            for (PersonaNatural persona  : personasSessionBeanRemote.listarPersonasNaturales()) {
+            /*for (Object persona  : personasSessionBeanRemote.listarPersonasNaturales()) {
                 System.out.println(persona);
-            }
+            }*/
             
             //System.out.println(transactionSessionBeanRemote.prueba());
             

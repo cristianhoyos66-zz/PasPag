@@ -41,30 +41,27 @@ public class PersonasSessionBean implements PersonasSessionBeanRemote{
 
     @Override
     public PersonaNatural EncontrarPersonaNatural(PersonaPK persona) {
-        /*PersonaNaturalJpaController controller = new PersonaNaturalJpaController(emf);
-        return controller.findPersonaNatural(persona);*/
-        return null;
+        PersonaNaturalJpaController controller = new PersonaNaturalJpaController(emf);
+        return controller.findPersonaNatural(persona);
     }
 
     @Override
     public PersonaJuridica EncontrarPersonaJuridica(PersonaPK persona) {
-        /*PersonaJuridicaJpaController controller = new PersonaJuridicaJpaController(emf);
-        return controller.findPersonaJuridica(persona);*/
-        return null;
+        PersonaJuridicaJpaController controller = new PersonaJuridicaJpaController(emf);
+        return controller.findPersonaJuridica(persona);
     }
 
     @Override
     public List<PersonaNatural> listarPersonasNaturales() {
        PersonaNaturalJpaController controller = new PersonaNaturalJpaController(emf);
-       List <PersonaNatural> listaPersonas = controller.findPersonaNaturalEntities();
+       List listaPersonas = controller.findPersonaNaturalEntities();
        return listaPersonas;
     }
     
     @Override
     public List<PersonaJuridica> listarPersonasJuridicas() {
-       /*PersonaJuridicaJpaController controller = new PersonaJuridicaJpaController(emf);
-       return controller.findPersonaJuridicaEntities();*/
-       return null;
+       PersonaJuridicaJpaController controller = new PersonaJuridicaJpaController(emf);
+       return controller.findPersonaJuridicaEntities();
     }
 
     @Override
